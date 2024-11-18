@@ -37,7 +37,7 @@ exports.addCategory = (req, res) => {
       return res.status(400).json({ msg: 'Category name is required' });
     }
   
-    const newCategory = new CategoryModel({ name });
+    const newCategory = new CategoryModel({ name, slug: slugify(name) });
   
     // Save the new category
     newCategory
